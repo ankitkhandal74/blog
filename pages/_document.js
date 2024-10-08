@@ -4,7 +4,7 @@ export default function MyDocument() {
     return (
         <Html lang="en">
             <Head>
-
+                <meta name="google-site-verification" content="T6GVfzU1r-LutM3nsjLXK_1nAHD3XbcBQU_0hw6Gjl4" />
                 <meta charSet="UTF-8" />
                 <meta name="description" content="Next.js Application Documentation" />
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
