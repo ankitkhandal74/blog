@@ -36,7 +36,7 @@ export default function MyDocument() {
         />
 
                 {/* Favicon (Logo) */}
-                <link rel="icon" href="/logo2.png" />
+                <link rel="icon" href="https://readwithankit.vercel.app/logo2.png" />
             </Head>
             <body>
                 <Main />
