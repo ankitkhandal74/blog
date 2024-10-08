@@ -39,7 +39,7 @@ const CategoryPage = ({ blogs }) => {
         <h1 className='text-5xl Raleway'>Categories</h1>
         <h2 className='text-3xl Raleway mt-4'>{formattedCategories}</h2>
       </div>
-      <div className='grid grid-cols-3 p-10 px-20 m-auto gap-4'>
+      <div className='grid grid-cols-3 py-10 mx-4 md:px-20 m-auto gap-4 max-md:grid-cols-1'>
         {blogs.map((blog) => (
           <div key={blog._id} className="flex flex-col justify-between">
             {/* Wrap the entire card in one Link instead of having multiple */}
