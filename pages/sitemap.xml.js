@@ -1,7 +1,7 @@
 import dbConnect from '@/lib/db'; // Adjust the path to your dbConnect file
 import Blog from '@/models/Blog'; // Replace with your Blog model if different
 
-const BASE_URL = 'https://localhost:3000'; // Replace with your actual domain
+const BASE_URL = 'https://readwithankit.vercel.app'; // Replace with your actual domain
 
 const pages = [
   'About',
