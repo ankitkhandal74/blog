@@ -23,8 +23,6 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>Read With Ankit</title>
-        <meta name="description" content="Your website description here" />
-        <meta name="keywords" content="your, keywords, here" />
       </Head>
       <Component {...pageProps} />
     </>
