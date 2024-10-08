@@ -35,6 +35,22 @@ export default function MyDocument() {
           }}
         />
 
+             {/* Google Analytics */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-DCJ22NP0BQ"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-DCJ22NP0BQ');
+            `,
+          }}
+        />
+
                 {/* Favicon (Logo) */}
                 <link rel="icon" href="https://readwithankit.vercel.app/logo2.png" />
             </Head>
