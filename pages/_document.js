@@ -4,6 +4,7 @@ export default function MyDocument() {
     return (
         <Html lang="en">
             <Head>
+                <meta name="msvalidate.01" content="0BEA33B18438C0D3F33F305591BD5F33" />
                 <meta name="google-site-verification" content="T6GVfzU1r-LutM3nsjLXK_1nAHD3XbcBQU_0hw6Gjl4" />
                 <meta charSet="UTF-8" />
                 <meta name="description" content="Next.js Application Documentation" />
