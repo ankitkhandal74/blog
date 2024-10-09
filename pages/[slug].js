@@ -122,10 +122,32 @@ export default function BlogPost({ blog }) {
                                     : 'Loading...'}
                             </li>
                             <li>
-                                <p>
+                                {/* <p>
                                     <Link href={`/categories/${blog.categories}`}>
                                         {blog.categories}
                                     </Link>
+                                </p> */}
+                                <p>
+                                    {Array.isArray(blog.categories) ? (
+                                        blog.categories.map((category, index) => (
+                                            <span key={index}>
+                                                <Link href={`/categories/${category.trim()}`}>
+                                                    {category.trim()}
+                                                </Link>
+                                                {index < blog.categories.length - 1 && ', '}
+                                            </span>
+                                        ))
+                                    ) : (
+                                        typeof blog.categories === 'string' &&
+                                        blog.categories.split(',').map((category, index) => (
+                                            <span key={index}>
+                                                <Link href={`/categories/${category.trim()}`}>
+                                                    {category.trim()}
+                                                </Link>
+                                                {index < blog.categories.split(',').length - 1 && ', '}
+                                            </span>
+                                        ))
+                                    )}
                                 </p>
                             </li>
                             <li>Views: {blog.viewCount}</li>
@@ -136,15 +158,24 @@ export default function BlogPost({ blog }) {
                             <div className="bg-gray-200 m-5 rounded-xl p-5 h-[600px]">
                                 <h2 className="text-2xl p-2">Categories</h2>
                                 <div className="mx-10 flex gap-2">
-                                    {blog?.categories.map((category, i) => (
-                                        <div key={i} className="p-2">
-                                            <p>
-                                                <Link href={`/categories/${blog.categories}`}>
-                                                    {blog.categories}
+                                    {Array.isArray(blog.categories) ? (
+                                        blog.categories.map((category, index) => (
+                                            <div key={index} className="p-2">
+                                                <Link href={`/categories/${category.trim()}`}>
+                                                    {category.trim()}
                                                 </Link>
-                                            </p>
-                                        </div>
-                                    ))}
+                                            </div>
+                                        ))
+                                    ) : (
+                                        typeof blog.categories === 'string' &&
+                                        blog.categories.split(',').map((category, index) => (
+                                            <div key={index} className="p-2">
+                                                <Link href={`/categories/${category.trim()}`}>
+                                                    {category.trim()}
+                                                </Link>
+                                            </div>
+                                        ))
+                                    )}
                                 </div>
                                 <div className="border-t-[2px] border-gray-500 m-5"></div>
                                 <h2 className="text-2xl p-2">Tags</h2>
