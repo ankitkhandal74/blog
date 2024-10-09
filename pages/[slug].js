@@ -123,7 +123,7 @@ export default function BlogPost({ blog }) {
                             </li>
                             <li>
                                 <p>
-                                    <Link href={/categories/${blog.categories}}>
+                                    <Link href={`/categories/${blog.categories}`}>
                                         {blog.categories}
                                     </Link>
                                 </p>
