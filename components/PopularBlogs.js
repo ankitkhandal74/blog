@@ -58,9 +58,26 @@ const PopularBlogs = () => {
                                         </div>
                                         <div className="pt-4 pb-2 flex gap-4 roboto">
                                             <p className="text-black text-sm">
-                                                <Link href={`/categories/${blog.categories}`}>
-                                                    {blog.categories}
+                                            {Array.isArray(blog.categories) ? (
+                                        blog.categories.map((category, index) => (
+                                            <span key={index}>
+                                                <Link href={`/categories/${category.trim()}`}>
+                                                    {category.trim()}
                                                 </Link>
+                                                {index < blog.categories.length - 1 && ', '}
+                                            </span>
+                                        ))
+                                    ) : (
+                                        typeof blog.categories === 'string' &&
+                                        blog.categories.split(',').map((category, index) => (
+                                            <span key={index}>
+                                                <Link href={`/categories/${category.trim()}`}>
+                                                    {category.trim()}
+                                                </Link>
+                                                {index < blog.categories.split(',').length - 1 && ', '}
+                                            </span>
+                                        ))
+                                    )}
                                             </p>
                                             <p className="text-gray-500 text-sm">{formatDate(blog.date)}</p>
                                         </div>
