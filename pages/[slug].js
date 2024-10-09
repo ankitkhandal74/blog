@@ -123,9 +123,14 @@ export default function BlogPost({ blog }) {
                             </li>
                             <li>
                                 <p>
-                                    <Link href={`/categories/${blog.categories}`}>
-                                        {blog.categories}
-                                    </Link>
+                                   {blog.categories.split(',').map((category, index) => (
+                                   <span key={index}>
+                                   <Link href={`/categories/${category.trim()}`}>
+                                   {category.trim()}
+                                 </Link>
+                                 {index < blog.categories.split(',').length - 1 && ', '}
+                                    </span>
+                                      ))}
                                 </p>
                             </li>
                             <li>Views: {blog.viewCount}</li>
