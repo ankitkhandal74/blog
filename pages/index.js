@@ -114,9 +114,28 @@ export default function Home() {
 
               <div className=' absolute bottom-0 md:right-[7vw] bg-white rounded-2xl md:px-10 px-4 py-6 shadow-2xl md:w-[65vw] w-[90vw] right-0'>
                 <div className='flex md:gap-4 md:pb-4 items-center roboto max-md:flex-col'>
-                  <p className='text-black text-xl font-medium  max-md:text-base max-md:text-start  max-md:w-full '><Link href={`/categories/${blog.categories}`}>
-                          {blog.categories}
-                        </Link></p>
+                  <p className='text-black text-xl font-medium  max-md:text-base max-md:text-start  max-md:w-full '>
+                  {Array.isArray(blog.categories) ? (
+                                        blog.categories.map((category, index) => (
+                                            <span key={index}>
+                                                <Link href={`/categories/${category.trim()}`}>
+                                                    {category.trim()}
+                                                </Link>
+                                                {index < blog.categories.length - 1 && ', '}
+                                            </span>
+                                        ))
+                                    ) : (
+                                        typeof blog.categories === 'string' &&
+                                        blog.categories.split(',').map((category, index) => (
+                                            <span key={index}>
+                                                <Link href={`/categories/${category.trim()}`}>
+                                                    {category.trim()}
+                                                </Link>
+                                                {index < blog.categories.split(',').length - 1 && ', '}
+                                            </span>
+                                        ))
+                                    )}
+                  </p>
                   <p className='text-gray-500 text-base font-medium max-md:text-end max-md:w-full max-md:text-base'>{formatDate(blog.date)}</p>
                 </div>
                 <div className='text-4xl md:pb-4 pb-1 font-bold text-gray-800 Raleway max-md:text-xl '>{blog.title}</div>
@@ -159,9 +178,26 @@ export default function Home() {
                     </div>
                     <div className=' pt-4 pb-2 flex gap-4 roboto'>
                       <p className='text-black text-sm'>
-                        <Link href={`/categories/${blog.categories}`}>
-                          {blog.categories}
-                        </Link>
+                      {Array.isArray(blog.categories) ? (
+                                        blog.categories.map((category, index) => (
+                                            <span key={index}>
+                                                <Link href={`/categories/${category.trim()}`}>
+                                                    {category.trim()}
+                                                </Link>
+                                                {index < blog.categories.length - 1 && ', '}
+                                            </span>
+                                        ))
+                                    ) : (
+                                        typeof blog.categories === 'string' &&
+                                        blog.categories.split(',').map((category, index) => (
+                                            <span key={index}>
+                                                <Link href={`/categories/${category.trim()}`}>
+                                                    {category.trim()}
+                                                </Link>
+                                                {index < blog.categories.split(',').length - 1 && ', '}
+                                            </span>
+                                        ))
+                                    )}
                       </p>
                       <p className='text-gray-500 text-sm'> {formatDate(blog.date)}</p>
                     </div>
